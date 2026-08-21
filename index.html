@@ -75,7 +75,6 @@
 
   <iframe
     id="app-frame"
-    src="https://script.google.com/macros/s/AKfycbyPTZhwO5vWkpqkWR8oNXG7hJA7oRV0o3l7pOHtsVQZeIK6iXstlOwmAJq2GAxwN371/exec"
     title="Database Tugas Kuliah"
     allow="clipboard-write"
     referrerpolicy="no-referrer-when-downgrade">
@@ -83,14 +82,26 @@
 
   <div id="fallback">
     <p>Jika aplikasi tidak muncul, buka langsung melalui tautan berikut:</p>
-    <a href="https://script.google.com/macros/s/AKfycbyPTZhwO5vWkpqkWR8oNXG7hJA7oRV0o3l7pOHtsVQZeIK6iXstlOwmAJq2GAxwN371/exec" target="_blank" rel="noopener">Buka Aplikasi</a>
+    <a id="fallback-link" href="#" target="_blank" rel="noopener">Buka Aplikasi</a>
   </div>
+
+  <!-- ====================================================
+       GANTI URL WEB APP DI SINI SAAT LINK BERUBAH
+       (satu-satunya tempat yang perlu diedit)
+  ==================================================== -->
+  <script>
+    var APP_URL = "https://script.google.com/macros/s/AKfycbyPTZhwO5vWkpqkWR8oNXG7hJA7oRV0o3l7pOHtsVQZeIK6iXstlOwmAJq2GAxwN371/exec";
+  </script>
 
   <script>
     var loader = document.getElementById('loader');
     var frame = document.getElementById('app-frame');
     var fallback = document.getElementById('fallback');
+    var fallbackLink = document.getElementById('fallback-link');
     var loaded = false;
+
+    frame.src = APP_URL;
+    fallbackLink.href = APP_URL;
 
     frame.addEventListener('load', function () {
       loaded = true;
